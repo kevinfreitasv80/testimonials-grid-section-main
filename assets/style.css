@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
 
-body{
+html, body{
     margin: 0;
     padding: 0;
     font-family: "Barlow Semi Condensed", sans-serif;
@@ -136,4 +136,82 @@ h1, section>article:last-child p{
 
 p{
     line-height: 15px;
+}
+
+@media (max-width: 1000px) {
+    main{
+        top: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        width: fit-content;
+        grid-template-columns: repeat(2, 350px);
+        grid-template-rows: repeat(3, .3fr);
+    }
+    section:first-child{
+        grid-column: 1;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    section:first-child h1{
+        max-width: 13.1em;
+    }
+    section:first-child p{
+        line-height: 1.7em;
+    }
+    section:nth-child(2), section:nth-child(4){
+        grid-column: 2;
+    }
+    section:nth-child(2) h1{
+        max-width: 12em;
+    }
+    section:nth-child(2) p, section:nth-child(4) p, section:nth-child(3) p{
+        max-width: 30em;
+    }
+    section:nth-child(3){
+        grid-row: 3;
+        grid-column: 1;
+    }
+    section:nth-child(3)>article:last-child p{
+        height: auto;
+    }
+    section:nth-child(4) h1{
+        max-width: 10em;
+    }
+    section:last-child h1, section:last-child p, section:nth-child(3) h1, section:nth-child(3) p{
+        max-width: max-content;
+    }
+    section:last-child{
+        grid-column: 2;
+    }
+}
+@media (max-width: 745px) {
+    main{
+        grid-template-columns: repeat(1, 330px);
+        grid-template-rows: repeat(11, .3fr);
+    }
+    section:first-child, section:nth-child(2), section:nth-child(3), section:nth-child(4), section:last-child{
+        grid-column: 1;
+    }
+    section:first-child{
+        grid-row-start: 1;
+        grid-row-end: 4;
+    }
+    section:first-child p{
+        line-height: 1.1em;
+    }
+    section:nth-child(2){
+        grid-row: 4;
+    }
+    section:nth-child(4){
+        grid-row: 5;
+    }
+    section:last-child{
+        grid-row-start: 6;
+        grid-row-end: 9;
+    }
+    section:nth-child(3){
+        grid-row-start: 9;
+        grid-row-end: 12;
+        padding-bottom: 4em;
+    }
 }
